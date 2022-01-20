@@ -16,4 +16,4 @@ To install the required depencies !
 
 # Done
 
-Now your Bot is fully configured and waiting to run
+Now your Bot is fully configured and waiting to run !
