@@ -5,9 +5,6 @@ import psutil
 import cpuinfo
 from discord.ext import commands
 
-client = commands.Bot(command_prefix="g!", intents=discord.Intents.all())
-
-client.remove_command("help")
 
 with open('config.json') as json_file:
     data = json.load(json_file)
@@ -15,7 +12,11 @@ with open('config.json') as json_file:
 BOT_TOKEN = data["BOT_TOKEN"]
 NODE_NAME = data["SERVER_NAME"]
 IP = data["SERVER_IP"]
+PREFIX = data["PREFIX"]
 
+client = commands.Bot(command_prefix=PREFIX, intents=discord.Intents.all())
+
+client.remove_command("help")
 
 @client.event
 async def on_ready():
