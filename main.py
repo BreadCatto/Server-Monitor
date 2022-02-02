@@ -42,7 +42,7 @@ async def stats(ctx):
 
     embed = discord.Embed(title=f"{NODE_NAME} Stats", description=f"**----- Node Info ----**\n**```\nCPU Usage: {psutil.cpu_percent(interval=1)}% \nRam Usage: {round(psutil.virtual_memory().used/1000000000, 2)}GB / {round(psutil.virtual_memory().total/1000000000, 2)}GB\nSWAP Usage: {round(psutil.swap_memory().used/1000000000, 2)}GB / {round(psutil.swap_memory().total/1000000000, 2)}GB\nDisk Usage: {round(psutil.disk_usage('/').used/1000000000, 2)}GB / {round(psutil.disk_usage('/').total/1000000000, 2)}GB```**\n**----- Physical Info -----**\n**```\nCPU: {cpu}\nIP: {IP}```**", color=discord.Color.blue())
     embed.set_thumbnail(url=ctx.guild.icon_url)
-    embed.set_footer(text=f"https://client.galaxichost.com  ||  Uptime: {uptime_stamp}", icon_url=ctx.guild.icon_url)
+    embed.set_footer(text=f"Uptime: {uptime_stamp}", icon_url=ctx.guild.icon_url)
     await ctx.send(embed=embed)
 
 
