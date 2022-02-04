@@ -1,6 +1,6 @@
 {
   "BOT_TOKEN": "input your bot token",
-  "SERVER_NAME": "input the name of your server (stats command will always work :))",
+  "SERVER_NAME": "input the name/code of your server (example us1)",
   "SERVER_IP": "input your server ip",
   "PREFIX": "."
 }
