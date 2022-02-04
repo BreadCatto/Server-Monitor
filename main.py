@@ -14,7 +14,7 @@ NODE_NAME = data["SERVER_NAME"]
 IP = data["SERVER_IP"]
 PREFIX = data["PREFIX"]
 
-client = commands.Bot(command_prefix=PREFIX, intents=discord.Intents.all())
+client = commands.Bot(command_prefix=PREFIX)
 
 client.remove_command("help")
 
