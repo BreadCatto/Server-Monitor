@@ -1,6 +1,5 @@
 {
-  "BOT_TOKEN": "input your bot token",
-  "SERVER_NAME": "input the name/code of your server (example us1)",
-  "SERVER_IP": "input your server ip",
-  "PREFIX": "."
+    "PREFIX": ".",
+    "TOKEN": "input your bot token",
+    "SERVER_NAME": "Your Node Name Eg.(us1)"
 }
