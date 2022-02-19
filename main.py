@@ -11,7 +11,7 @@ from discord.ext import commands
 with open('config.json') as json_file:
     data = json.load(json_file)
 
-BOT_TOKEN = data["BOT_TOKEN"]
+BOT_TOKEN = data["TOKEN"]
 NODE_NAME = data["SERVER_NAME"]
 PREFIX = data["PREFIX"]
 
