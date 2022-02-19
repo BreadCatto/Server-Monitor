@@ -1,7 +1,9 @@
 import discord
 import datetime
 import json
+import requests
 import psutil
+from uptime import uptime
 import cpuinfo
 from discord.ext import commands
 
@@ -11,7 +13,6 @@ with open('config.json') as json_file:
 
 BOT_TOKEN = data["BOT_TOKEN"]
 NODE_NAME = data["SERVER_NAME"]
-IP = data["SERVER_IP"]
 PREFIX = data["PREFIX"]
 
 client = commands.Bot(command_prefix=PREFIX)
@@ -27,20 +28,27 @@ start_time = datetime.datetime.utcnow()
 
 @client.command(aliases=[NODE_NAME])
 async def stats(ctx):
-    now = datetime.datetime.utcnow()  # Timestamp of when uptime function is run
-    delta = now - start_time
-    hours, remainder = divmod(int(delta.total_seconds()), 3600)
-    minutes, seconds = divmod(remainder, 60)
-    days, hours = divmod(hours, 24)
-    if days:
-        time_format = "{d}d {h}h {m}m {s}s"
-    else:
-        time_format = "{h}h {m}m {s}s"
-    uptime_stamp = time_format.format(d=days, h=hours, m=minutes, s=seconds)
-
+    up = uptime()
+    time = float(up)
+    day = time // (24 * 3600)
+    time = time % (24 * 3600)
+    hour = time // 3600
+    time %= 3600
+    minutes = time // 60
+    time %= 60
+    seconds = time
+    uptime_stamp = ("%dd %dh %dm %ds" % (day, hour, minutes, seconds))
     cpu = cpuinfo.get_cpu_info()["brand_raw"]
+    threads = cpuinfo.get_cpu_info()["count"]
+    cpu_usage = f"CPU Usage: {psutil.cpu_percent(interval=1)}%"
+    ram_usage = f"Ram Usage: {round(psutil.virtual_memory().used/1000000000, 2)}GB / {round(psutil.virtual_memory().total/1000000000, 2)}GB"
+    swap_usage = f"SWAP Usage: {round(psutil.swap_memory().used/1000000000, 2)}GB / {round(psutil.swap_memory().total/1000000000, 2)}GB"
+    disk_usage = f"Disk Usage: {round(psutil.disk_usage('/').used/1000000000, 2)}GB / {round(psutil.disk_usage('/').total/1000000000, 2)}GB"
+    response = requests.get(f"http://ip-api.com/json/").json()
+    physical_info = f"CPU: {threads} Threads | {cpu}\nIP: {response['query']}"
 
-    embed = discord.Embed(title=f"{NODE_NAME} Stats", description=f"**----- Node Info ----**\n**```\nCPU Usage: {psutil.cpu_percent(interval=1)}% \nRam Usage: {round(psutil.virtual_memory().used/1000000000, 2)}GB / {round(psutil.virtual_memory().total/1000000000, 2)}GB\nSWAP Usage: {round(psutil.swap_memory().used/1000000000, 2)}GB / {round(psutil.swap_memory().total/1000000000, 2)}GB\nDisk Usage: {round(psutil.disk_usage('/').used/1000000000, 2)}GB / {round(psutil.disk_usage('/').total/1000000000, 2)}GB```**\n**----- Physical Info -----**\n**```\nCPU: {cpu}\nIP: {IP}```**", color=discord.Color.blue())
+
+    embed = discord.Embed(title=f"{NODE_NAME} Stats", description=f"**----- Node Info ----**\n**```\n{cpu_usage} \n{ram_usage}\n{swap_usage}\n{disk_usage}```**\n**----- Physical Info -----**\n**```\n{physical_info}```**", color=discord.Color.blue())
     embed.set_thumbnail(url=ctx.guild.icon_url)
     embed.set_footer(text=f"Uptime: {uptime_stamp}", icon_url=ctx.guild.icon_url)
     await ctx.send(embed=embed)
