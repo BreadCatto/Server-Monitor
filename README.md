@@ -7,7 +7,7 @@ pip install -r requirements.txt
 ```
 To install the required depencies !
 
-# Configuration
+# Configuration [In config.json]
 
 * PREFIX
 * BOT_TOKEN
