@@ -1,6 +1,8 @@
 # Server-Monitor
 A discord bot to monitor your server with easy installation.
 
+[Support Server](https://discord.gg/TFyj6jBDRD)
+
 # Install Modules/ Dependancies
 ```
 pip install -r requirements.txt
@@ -9,9 +11,7 @@ pip install -r requirements.txt
 
 
 
-# Screenshots 
 
- ![Screenshot1](https://github.com/BreadCatto/Server-Monitor/raw/main/screenshot1.jpg)
 
 # Commands
 
@@ -35,3 +35,7 @@ The Bot in now configured and you can run it.
 # Some Extra
 * Install the bot in the server you want status of.
 * To install it in multiple servers, just Install it in all the servers using same bot token and different server_name.
+
+# Screenshots 
+
+ ![Screenshot1](https://github.com/BreadCatto/Server-Monitor/raw/main/screenshot1.jpg)
