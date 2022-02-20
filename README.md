@@ -9,9 +9,14 @@ To install the required depencies !
 
  
 
- # Screenshots 
+# Screenshots 
 
  ![Screenshot1](https://github.com/BreadCatto/Server-Monitor/raw/main/screenshot1.jpg)
+
+# Commands
+
+* stats [To Show status of all servers]
+* (server_name) [To Show the status of a specific server]
 
 # Configuration [In config.json]
 
