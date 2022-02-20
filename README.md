@@ -20,9 +20,11 @@ pip install -r requirements.txt
 
 # Configuration [In config.json]
 
+```
 * PREFIX
 * BOT_TOKEN
 * SERVER_NAME
+```
 
 # Done
 
