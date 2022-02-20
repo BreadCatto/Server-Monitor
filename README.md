@@ -26,4 +26,8 @@ To install the required depencies !
 
 # Done
 
-Now your Bot is fully configured and waiting to run !
+The Bot in now configured and you can run it.
+
+# Some Extra
+* Install the bot in the server you want status of.
+* To install it in multiple servers, just Install it in all the servers using same bot token and different server_name.
