@@ -1,13 +1,13 @@
 # Server-Monitor
 A discord bot to monitor your server with easy installation
 
-# Installation
+# Install Modules/ Dependancies
 ```
 pip install -r requirements.txt
 ```
-To install the required depencies !
 
- 
+
+
 
 # Screenshots 
 
