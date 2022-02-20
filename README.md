@@ -1,5 +1,5 @@
 # Server-Monitor
-A discord bot to monitor your server with easy installation
+A discord bot to monitor your server with easy installation.
 
 # Install Modules/ Dependancies
 ```
@@ -15,8 +15,10 @@ pip install -r requirements.txt
 
 # Commands
 
+```
 * stats [To Show status of all servers]
 * (server_name) [To Show the status of a specific server]
+```
 
 # Configuration [In config.json]
 
