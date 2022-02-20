@@ -1,7 +1,7 @@
 # Server-Monitor
 A discord bot to monitor your server with easy installation.
 
-[Support Server](https://discord.gg/TFyj6jBDRD)
+[Support Server](https://discord.gg/TFyj6jBDRD) | [Contact Email](mailto:contact@breadkitten.xyz?subject=Contact%20Bread)
 
 # Install Modules/ Dependancies
 ```
