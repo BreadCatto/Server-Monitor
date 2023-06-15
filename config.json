@@ -1,5 +1,6 @@
 {
     "PREFIX": ".",
     "TOKEN": "input your bot token",
-    "SERVER_NAME": "Your Node Name Eg.(us1)"
+    "SERVER_NAME": "Your Node Name Eg.(us1)",
+    "SHOW IP": False
 }
