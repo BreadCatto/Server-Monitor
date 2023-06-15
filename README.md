@@ -26,6 +26,7 @@ pip install -r requirements.txt
 * PREFIX
 * BOT_TOKEN
 * SERVER_NAME
+* SHOW_IP
 ```
 
 # Done
