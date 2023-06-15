@@ -14,6 +14,7 @@ with open('config.json') as json_file:
 BOT_TOKEN = data["TOKEN"]
 NODE_NAME = data["SERVER_NAME"]
 PREFIX = data["PREFIX"]
+SHOW_IP = data["SHOW_IP"]
 
 client = commands.Bot(command_prefix=PREFIX)
 
@@ -45,7 +46,11 @@ async def stats(ctx):
     swap_usage = f"SWAP Usage: {round(psutil.swap_memory().used/1000000000, 2)}GB / {round(psutil.swap_memory().total/1000000000, 2)}GB"
     disk_usage = f"Disk Usage: {round(psutil.disk_usage('/').used/1000000000, 2)}GB / {round(psutil.disk_usage('/').total/1000000000, 2)}GB"
     response = requests.get(f"http://ip-api.com/json/").json()
-    physical_info = f"CPU: {threads} Threads | {cpu}\nIP: {response['query']}"
+    if SHOW_IP == True:
+        aip = response['query']
+    else:
+        aip = "Disabled"
+    physical_info = f"CPU: {threads} Threads | {cpu}\nIP: {aip}"
 
 
     embed = discord.Embed(title=f"{NODE_NAME} Stats", description=f"**----- Node Info ----**\n**```\n{cpu_usage} \n{ram_usage}\n{swap_usage}\n{disk_usage}```**\n**----- Physical Info -----**\n**```\n{physical_info}```**", color=discord.Color.blue())
